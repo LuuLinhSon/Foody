@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#cd2027</color>
+    <color name="colorPrimaryDark">#B71C1C</color>
+    <color name="colorAccent">#FFFF</color>
+    <color name="tranColorPrimary">#A6cd2027</color>
+    <color name="backgroundButton">#64DD17</color>
+    <color name="colorGoogle">#F44336</color>
+    <color name="colorFacebook">#189aca</color>
+    <color name="tranColorDack">#66000000</color>
+</resources>
