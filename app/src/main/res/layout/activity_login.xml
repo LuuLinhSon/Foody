@@ -28,7 +28,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginTop="20dp"
-            android:hint="Tên đăng nhập"
+            android:hint="Email"
             android:textColorHint="@color/colorAccent"
             android:paddingRight="10dp"
             android:drawablePadding="10dp"
@@ -158,8 +158,6 @@
                 android:gravity="center"
                 />
         </LinearLayout>
-
-
 
     </LinearLayout>
 

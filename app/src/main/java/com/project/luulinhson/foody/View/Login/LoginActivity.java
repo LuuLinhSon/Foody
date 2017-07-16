@@ -32,6 +32,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.project.luulinhson.foody.R;
+import com.project.luulinhson.foody.View.Register.RegisterActivity;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -71,6 +72,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         btnSignInGoogle.setOnClickListener(this);
         btnSignInFacebook.setOnClickListener(this);
+        tvQuenMatKhau.setOnClickListener(this);
+        tvDangKyMoi.setOnClickListener(this);
 
         TaoCliendGoogle();
     }
@@ -96,6 +99,13 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 break;
             case R.id.btnSignInFacebook:
                 DangNhapFacebook();
+                break;
+            case R.id.tvDangKyMoi:
+                Intent iDangKy = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(iDangKy);
+                break;
+            case R.id.tvQuenMatKhau:
+
                 break;
         }
     }
