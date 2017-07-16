@@ -21,6 +21,7 @@
             android:layout_gravity="center"
             />
         <EditText
+            android:id="@+id/edEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorAccent"
@@ -32,8 +33,10 @@
             android:textColorHint="@color/colorAccent"
             android:paddingRight="10dp"
             android:drawablePadding="10dp"
+            android:textColor="@color/colorAccent"
             />
         <EditText
+            android:id="@+id/edMatKhau"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorAccent"
@@ -45,8 +48,10 @@
             android:hint="Mật khẩu"
             android:textColorHint="@color/colorAccent"
             android:drawablePadding="10dp"
+            android:textColor="@color/colorAccent"
             />
         <EditText
+            android:id="@+id/edNhapLaiMatKhau"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorAccent"
@@ -58,9 +63,11 @@
             android:hint="Nhập lại mật khẩu"
             android:textColorHint="@color/colorAccent"
             android:drawablePadding="10dp"
+            android:textColor="@color/colorAccent"
             />
 
         <Button
+            android:id="@+id/btnDangKy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Đăng ký"
