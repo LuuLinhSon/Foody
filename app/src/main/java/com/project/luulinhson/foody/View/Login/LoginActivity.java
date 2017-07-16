@@ -1,12 +1,15 @@
 package com.project.luulinhson.foody.View.Login;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +35,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.project.luulinhson.foody.R;
+import com.project.luulinhson.foody.View.Main.MainActivity;
 import com.project.luulinhson.foody.View.Register.RegisterActivity;
+import com.project.luulinhson.foody.View.Reminder.ReminderActivity;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -49,6 +54,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     LoginManager loginManager;
     List<String> permissionFacebook = Arrays.asList("email","public_profile");
     TextView tvQuenMatKhau,tvDangKyMoi;
+    EditText edEmailLogin,edMatKhauLogin;
+    Button btnDangNhap;
+    ProgressDialog progressDialog;
 
 
     @Override
@@ -59,6 +67,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         firebaseAuth = FirebaseAuth.getInstance();
         loginManager = LoginManager.getInstance();
+        firebaseAuth.signOut();
 
         callbackManager = CallbackManager.Factory.create();
 
@@ -66,6 +75,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         btnSignInFacebook = (Button) findViewById(R.id.btnSignInFacebook);
         tvQuenMatKhau = (TextView) findViewById(R.id.tvQuenMatKhau);
         tvDangKyMoi = (TextView) findViewById(R.id.tvDangKyMoi);
+        edEmailLogin = (EditText) findViewById(R.id.edEmailLogin);
+        edMatKhauLogin = (EditText) findViewById(R.id.edMatKhauLogin);
+        btnDangNhap = (Button) findViewById(R.id.btnDangNhap);
+        progressDialog = new ProgressDialog(this);
 
         tvQuenMatKhau.setPaintFlags(tvQuenMatKhau.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvDangKyMoi.setPaintFlags(tvDangKyMoi.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -74,6 +87,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         btnSignInFacebook.setOnClickListener(this);
         tvQuenMatKhau.setOnClickListener(this);
         tvDangKyMoi.setOnClickListener(this);
+        btnDangNhap.setOnClickListener(this);
 
         TaoCliendGoogle();
     }
@@ -105,8 +119,40 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 startActivity(iDangKy);
                 break;
             case R.id.tvQuenMatKhau:
-
+                Intent iReminder = new Intent(LoginActivity.this, ReminderActivity.class);
+                startActivity(iReminder);
                 break;
+            case R.id.btnDangNhap:
+                progressDialog.setMessage("Vui lòng đợi.....");
+                progressDialog.setIndeterminate(true);
+                progressDialog.setIndeterminateDrawable(getResources().getDrawable(R.drawable.my_animation));
+                progressDialog.show();
+                DangNhapEmailPassword();
+                break;
+        }
+    }
+
+    private void DangNhapEmailPassword(){
+        String email = edEmailLogin.getText().toString();
+        String password = edMatKhauLogin.getText().toString();
+        Boolean kiemtraemail = Patterns.EMAIL_ADDRESS.matcher(email).matches();
+
+        if(email.trim().equals("") || !kiemtraemail){
+            Toast.makeText(LoginActivity.this,"Email không hợp lệ",Toast.LENGTH_SHORT).show();
+            progressDialog.dismiss();
+        }else if(password.trim().equals("")){
+            Toast.makeText(LoginActivity.this,"Mật khẩu không được để trống",Toast.LENGTH_SHORT).show();
+            progressDialog.dismiss();
+        }else {
+            firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(!task.isSuccessful()){
+                        Toast.makeText(LoginActivity.this,"Email hoặc mật khẩu không đúng",Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+                    }
+                }
+            });
         }
     }
 
@@ -192,7 +238,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
         if(firebaseUser != null){
-            Toast.makeText(this,"Đăng nhập thành công",Toast.LENGTH_LONG).show();
+            progressDialog.dismiss();
+            Intent iTrangChu = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(iTrangChu);
+            finish();
         }else {
 
         }

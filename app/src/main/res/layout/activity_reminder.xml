@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context="com.project.luulinhson.foody.View.Login.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/tranColorDack"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Khôi phục mật khẩu"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Vui lòng điền đúng Email của bạn vào trường bên dưới để khôi phục password!"
+            android:textColor="@color/colorAccent"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            />
+
+
+        <EditText
+            android:id="@+id/edEmailKP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorAccent"
+            android:drawableLeft="@drawable/ic_email_white_24dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:hint="Email"
+            android:textColorHint="@color/colorAccent"
+            android:paddingRight="10dp"
+            android:drawablePadding="10dp"
+            android:textColor="@color/colorAccent"
+            />
+
+        <Button
+            android:id="@+id/btnNhanMatKhau"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nhận mật khẩu"
+            android:drawableLeft="@drawable/ic_exit_to_app_white_24dp"
+            android:background="@drawable/custom_button_login"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorAccent"
+            android:paddingLeft="5dp"
+            android:paddingRight="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bạn chưa phải là thành viên vui lòng "
+                android:textColor="@color/colorAccent"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:layout_marginTop="30dp"
+                />
+
+            <TextView
+                android:id="@+id/tvDangKyMoiKP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đăng ký mới"
+                android:textColor="@color/colorGoogle"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:layout_marginTop="30dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="3dp"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,9 +1,11 @@
 package com.project.luulinhson.foody.View.Register;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.project.luulinhson.foody.R;
+import com.project.luulinhson.foody.View.Login.LoginActivity;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -42,9 +45,10 @@ public class RegisterActivity extends AppCompatActivity {
                 String email = edEmail.getText().toString();
                 String password = edMatKhau.getText().toString();
                 String rePassword = edNhapLaiMatKhau.getText().toString();
+                Boolean kiemtraemail = Patterns.EMAIL_ADDRESS.matcher(email).matches();
 
-                if(email.trim().equals("")){
-                    Toast.makeText(RegisterActivity.this,"Email không được để trống",Toast.LENGTH_SHORT).show();
+                if(email.trim().equals("") || !kiemtraemail){
+                    Toast.makeText(RegisterActivity.this,"Email không hợp lệ!",Toast.LENGTH_SHORT).show();
                 }else if(password.trim().equals("")){
                     Toast.makeText(RegisterActivity.this,"Mật khẩu không được để trống",Toast.LENGTH_SHORT).show();
                 }else if(rePassword.trim().equals("") || !rePassword.equals(password)){
@@ -57,8 +61,15 @@ public class RegisterActivity extends AppCompatActivity {
                     firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            progressDialog.dismiss();
-                            Toast.makeText(RegisterActivity.this,"Đăng ký thành công",Toast.LENGTH_SHORT).show();
+                            if(task.isSuccessful()){
+                                progressDialog.dismiss();
+                                Intent iDangNhap = new Intent(RegisterActivity.this, LoginActivity.class);
+                                startActivity(iDangNhap);
+                                Toast.makeText(RegisterActivity.this,"Đăng ký thành công!",Toast.LENGTH_SHORT).show();
+                                finish();
+                            }else {
+                                Toast.makeText(RegisterActivity.this,"Đã có lỗi xảy ra trong quá trính đăng ký!Vui lòng thử lại",Toast.LENGTH_SHORT).show();
+                            }
                         }
                     });
                 }

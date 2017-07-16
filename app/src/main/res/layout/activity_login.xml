@@ -21,6 +21,7 @@
             android:layout_gravity="center"
             />
         <EditText
+            android:id="@+id/edEmailLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorAccent"
@@ -32,8 +33,10 @@
             android:textColorHint="@color/colorAccent"
             android:paddingRight="10dp"
             android:drawablePadding="10dp"
+            android:textColor="@color/colorAccent"
             />
         <EditText
+            android:id="@+id/edMatKhauLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorAccent"
@@ -45,9 +48,11 @@
             android:hint="Mật khẩu"
             android:textColorHint="@color/colorAccent"
             android:drawablePadding="10dp"
+            android:textColor="@color/colorAccent"
             />
 
         <Button
+            android:id="@+id/btnDangNhap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Đăng nhập"
