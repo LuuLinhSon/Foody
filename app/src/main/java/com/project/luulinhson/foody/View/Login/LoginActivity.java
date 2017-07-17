@@ -117,16 +117,14 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             case R.id.tvDangKyMoi:
                 Intent iDangKy = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(iDangKy);
+                finish();
                 break;
             case R.id.tvQuenMatKhau:
                 Intent iReminder = new Intent(LoginActivity.this, ReminderActivity.class);
                 startActivity(iReminder);
+                finish();
                 break;
             case R.id.btnDangNhap:
-                progressDialog.setMessage("Vui lòng đợi.....");
-                progressDialog.setIndeterminate(true);
-                progressDialog.setIndeterminateDrawable(getResources().getDrawable(R.drawable.my_animation));
-                progressDialog.show();
                 DangNhapEmailPassword();
                 break;
         }
@@ -139,11 +137,13 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         if(email.trim().equals("") || !kiemtraemail){
             Toast.makeText(LoginActivity.this,"Email không hợp lệ",Toast.LENGTH_SHORT).show();
-            progressDialog.dismiss();
         }else if(password.trim().equals("")){
             Toast.makeText(LoginActivity.this,"Mật khẩu không được để trống",Toast.LENGTH_SHORT).show();
-            progressDialog.dismiss();
         }else {
+            progressDialog.setMessage("Vui lòng đợi.....");
+            progressDialog.setIndeterminate(true);
+            progressDialog.setIndeterminateDrawable(getResources().getDrawable(R.drawable.my_animation));
+            progressDialog.show();
             firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {

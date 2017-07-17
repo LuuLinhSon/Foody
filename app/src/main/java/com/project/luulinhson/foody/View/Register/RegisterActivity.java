@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.project.luulinhson.foody.R;
 import com.project.luulinhson.foody.View.Login.LoginActivity;
+import com.project.luulinhson.foody.View.Reminder.ReminderActivity;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -75,7 +77,15 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
-
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+            finish();
+            Intent iLogin = new Intent(RegisterActivity.this,LoginActivity.class);
+            startActivity(iLogin);
+        }
+        return false;
     }
 }
