@@ -16,14 +16,14 @@
             android:value="@string/facebook_app_id" />
 
         <activity android:name=".View.Main.MainActivity" >
-
-        </activity>
-        <activity android:name=".View.Splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".View.Splash.SplashActivity">
+
         </activity>
         <activity android:name=".View.Login.LoginActivity" />
         <activity android:name=".View.Register.RegisterActivity" />
