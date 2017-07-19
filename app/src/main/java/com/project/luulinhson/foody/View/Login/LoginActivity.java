@@ -67,7 +67,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         firebaseAuth = FirebaseAuth.getInstance();
         loginManager = LoginManager.getInstance();
-        firebaseAuth.signOut();
 
         callbackManager = CallbackManager.Factory.create();
 
