@@ -2,7 +2,6 @@ package com.project.luulinhson.foody.View.Register;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -17,16 +16,19 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.project.luulinhson.foody.Model.Object.ThanhVien;
+import com.project.luulinhson.foody.Presenter.Register.XuLyDangKyThongTinThanhVien;
 import com.project.luulinhson.foody.R;
 import com.project.luulinhson.foody.View.Login.LoginActivity;
 import com.project.luulinhson.foody.View.Reminder.ReminderActivity;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity implements ViewDangKyThongTinThanhVien{
 
     EditText edMatKhau,edEmail,edNhapLaiMatKhau;
     Button btnDangKy;
     FirebaseAuth firebaseAuth;
     ProgressDialog progressDialog;
+    XuLyDangKyThongTinThanhVien xuLyDangKyThongTinThanhVien;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +42,12 @@ public class RegisterActivity extends AppCompatActivity {
         edNhapLaiMatKhau = (EditText) findViewById(R.id.edNhapLaiMatKhau);
         btnDangKy = (Button) findViewById(R.id.btnDangKy);
         progressDialog = new ProgressDialog(this);
+        xuLyDangKyThongTinThanhVien = new XuLyDangKyThongTinThanhVien(this);
 
         btnDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = edEmail.getText().toString();
+                final String email = edEmail.getText().toString();
                 String password = edMatKhau.getText().toString();
                 String rePassword = edNhapLaiMatKhau.getText().toString();
                 Boolean kiemtraemail = Patterns.EMAIL_ADDRESS.matcher(email).matches();
@@ -62,8 +65,16 @@ public class RegisterActivity extends AppCompatActivity {
                     progressDialog.show();
                     firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
+                        public void onComplete(Task<AuthResult> task) {
                             if(task.isSuccessful()){
+
+                                String userId = task.getResult().getUser().getUid();
+                                ThanhVien thanhVien = new ThanhVien();
+                                thanhVien.setHoten(email);
+                                thanhVien.setHinhanh("user2.png");
+
+                                xuLyDangKyThongTinThanhVien.XuLyDangKyThongTinThanhVien(userId,thanhVien);
+
                                 progressDialog.dismiss();
                                 Intent iDangNhap = new Intent(RegisterActivity.this, LoginActivity.class);
                                 startActivity(iDangNhap);
@@ -87,5 +98,15 @@ public class RegisterActivity extends AppCompatActivity {
             startActivity(iLogin);
         }
         return false;
+    }
+
+    @Override
+    public void dangKyThanhCong() {
+
+    }
+
+    @Override
+    public void dangKyThatBai() {
+
     }
 }

@@ -2,8 +2,9 @@ package com.project.luulinhson.foody.View.Login;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Paint;
-import android.support.annotation.NonNull;
+//import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -57,6 +58,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     EditText edEmailLogin,edMatKhauLogin;
     Button btnDangNhap;
     ProgressDialog progressDialog;
+    SharedPreferences sfUserId;
 
 
     @Override
@@ -68,7 +70,12 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         firebaseAuth = FirebaseAuth.getInstance();
         loginManager = LoginManager.getInstance();
 
+        firebaseAuth.signOut();
+
+
         callbackManager = CallbackManager.Factory.create();
+
+        sfUserId = getSharedPreferences("userid",MODE_PRIVATE);
 
         btnSignInGoogle = (Button) findViewById(R.id.btnSignInGoogle);
         btnSignInFacebook = (Button) findViewById(R.id.btnSignInFacebook);
@@ -87,6 +94,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         tvQuenMatKhau.setOnClickListener(this);
         tvDangKyMoi.setOnClickListener(this);
         btnDangNhap.setOnClickListener(this);
+
+
 
         TaoCliendGoogle();
     }
@@ -236,6 +245,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     @Override
     public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
         if(firebaseUser != null){
             progressDialog.dismiss();
             Intent iTrangChu = new Intent(LoginActivity.this, MainActivity.class);

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+    <fragment
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        />
+
+    <Button
+        android:id="@+id/btnDanDuong"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dẫn đường"
+        android:background="@drawable/custom_button_google"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="@color/colorAccent"
+        android:drawableTop="@drawable/ic_directions_white_24dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:drawablePadding="3dp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:background="#CCC"
+        />
+    <LinearLayout
+        android:id="@+id/lnTienIch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        >
+
+    </LinearLayout>
+
+
+</LinearLayout>

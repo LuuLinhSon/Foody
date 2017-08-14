@@ -3,6 +3,9 @@
     package="com.project.luulinhson.foody">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -12,22 +15,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDQFC6BiaUTViR_DZdN4gGVwNO4a-cNiVA" />
+        <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
-        <activity android:name=".View.Main.MainActivity" >
+        <activity android:name=".View.Main.MainActivity" />
+        <activity android:name=".View.Splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.Splash.SplashActivity">
-
-        </activity>
         <activity android:name=".View.Login.LoginActivity" />
         <activity android:name=".View.Register.RegisterActivity" />
-        <activity android:name=".View.Reminder.ReminderActivity"></activity>
+        <activity android:name=".View.Reminder.ReminderActivity" />
+        <activity android:name=".View.QuanAnDetail.ChiTietQuanAnActivity" />
+        <activity android:name=".View.QuanAnDetail.ChiTietBinhLuanActivity" />
+        <activity android:name=".View.QuanAnDetail.DanDuongActivity" />
+        <activity android:name=".View.QuanAnDetail.ThemBinhLuanActivity" />
+        <activity android:name=".View.QuanAnDetail.ChonHinhGalleryActivity"></activity>
     </application>
 
 </manifest>

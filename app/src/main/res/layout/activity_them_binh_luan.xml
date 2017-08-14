@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/quanan"
+    tools:context="com.project.luulinhson.foody.View.QuanAnDetail.ThemBinhLuanActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/tranColorDack"
+        >
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            >
+
+            <TextView
+                android:id="@+id/tvDang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đăng"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                />
+
+        </android.support.v7.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/tvTenQuanAn"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên quán ăn"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            />
+        <TextView
+            android:id="@+id/tvDiaChi"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Địa chỉ"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/colorAccent"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#CCC"
+            />
+
+        <EditText
+            android:id="@+id/edTieuDeBinhLuan"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/custom_button_login"
+            android:hint="Tiêu đề bình luận"
+            android:padding="5dp"
+            android:textColorHint="@color/colorAccent"
+            android:textColor="@color/colorAccent"
+            android:maxLines="1"
+            />
+
+        <EditText
+            android:id="@+id/edNoiDungBinhLuan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/custom_button_login"
+            android:hint="Bình luận của bạn"
+            android:gravity="start"
+            android:padding="5dp"
+            android:textColorHint="@color/colorAccent"
+            android:layout_weight="1"
+            android:scrollbars="vertical"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerHinhDuocChon"
+            android:layout_width="match_parent"
+            android:layout_height="120dp">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            >
+            <ImageButton
+                android:id="@+id/imbGallery"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:src="@drawable/ic_photo_camera_white_24dp"
+                />
+            <ImageButton
+                android:id="@+id/imbTag"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:src="@drawable/ic_label_white_24dp"
+                />
+            <ImageButton
+                android:id="@+id/imbRate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:src="@drawable/like5"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CCC"
+    >
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <android.support.v4.widget.NestedScrollView
+                android:id="@+id/nestedScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/custom_background_button_trang_chu"
+                            android:layout_margin="5dp"
+                            android:text="Gần tôi"
+                            android:textAllCaps="false"
+                            android:drawableLeft="@drawable/nearby"
+                            android:gravity="center|left"
+                            android:padding="10dp"
+                            android:drawablePadding="10dp"
+                            />
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/custom_background_button_trang_chu"
+                            android:layout_margin="5dp"
+                            android:text="Blogs"
+                            android:textAllCaps="false"
+                            android:drawableLeft="@drawable/blog"
+                            android:gravity="center|left"
+                            android:padding="10dp"
+                            android:drawablePadding="10dp"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/custom_background_button_trang_chu"
+                            android:layout_margin="5dp"
+                            android:text="Giao hàng"
+                            android:textAllCaps="false"
+                            android:drawableLeft="@drawable/order"
+                            android:gravity="center|left"
+                            android:padding="10dp"
+                            android:drawablePadding="10dp"
+                            />
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/custom_background_button_trang_chu"
+                            android:layout_margin="5dp"
+                            android:text="Game and fun"
+                            android:textAllCaps="false"
+                            android:drawableLeft="@drawable/gameandfun"
+                            android:gravity="center|left"
+                            android:padding="10dp"
+                            android:drawablePadding="10dp"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/custom_background_button_trang_chu"
+                            android:layout_margin="5dp"
+                            android:text="Đánh giá"
+                            android:textAllCaps="false"
+                            android:drawableLeft="@drawable/review"
+                            android:gravity="center|left"
+                            android:padding="10dp"
+                            android:drawablePadding="10dp"
+                            />
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/custom_background_button_trang_chu"
+                            android:layout_margin="5dp"
+                            android:text="Top thành viên"
+                            android:textAllCaps="false"
+                            android:drawableLeft="@drawable/user"
+                            android:gravity="center|left"
+                            android:padding="10dp"
+                            android:drawablePadding="10dp"
+                            />
+                    </LinearLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerODau"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    </android.support.v7.widget.RecyclerView>
+                </LinearLayout>
+
+
+
+
+
+            </android.support.v4.widget.NestedScrollView>
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBarTrangChu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/colorGoogle"
+            />
+
+    </FrameLayout>
+
+
+
+</android.support.design.widget.CoordinatorLayout>
+
+
